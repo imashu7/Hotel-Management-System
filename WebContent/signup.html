@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Management</title>
+<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	
+console.log("Page is ready");
+
+$("#myform").on('submit',function(event){
+	event.preventDefault();
+	
+	var f = $(this).serialize();
+	
+	console.log(f);
+	
+	$.ajax({
+		url: "Signup",
+		data: f,
+	    type: 'POST',
+	    success: function(data,textStatus,jqXHR){
+	    	console.log(data);
+	    	console.log("success..........");
+	    	
+	    	
+	    	
+	    },
+	    error: function(jqXHR,textStatus,errorThrown){
+	    	console.log(data);
+	    	console.log("error............");
+	    	
+	    }
+	    
+	})
+	
+})
+
+})
+	
+</script>
+
+<style>
+body{
+background-image: url('https://images.unsplash.com/photo-1561501900-3701fa6a0864?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bHV4dXJ5JTIwaG90ZWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');
+background-repeat: no-repeat;
+background-size: 1370px 1260px;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 20px;width:100%;position: fixed;opacity:1.5;z-index: 1;height:50px;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="HMS_accesed.html" style="text-align: center; margin-bottom: 5px; padding-left: 100px; padding-right: 150px;"><i class="material-icons" style="font-size: 30px; color:  #c68c53; text-align: center;padding: 5px;vertical-align: text-bottom;">hotel</i>  HOTEL MANAGEMENT SYSTEM</a>
+  
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item">
+        <a class="nav-link" href="Aboutus.html">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="Contactus.html">Contact US</a>
+      </li>
+     
+     <li class="nav-item">
+        <form action="Login" method="post"><button class="btn btn-outline-success" style="color:green;font-weight: 700;border:1px solid black;">Login Now</button></form>
+      </li>
+      </ul>
+ </div>
+  
+</nav>
+
+
+<form action="Signup" method="post" id="myform">
+    <div class="loginbox">
+            <h1>Sign up Here</h1>
+            
+                <label>Name</label>
+                <input type="text" name="Name" placeholder="Enter your name" required/>
+                <label>Phone Number</label>
+                <input type="number" name="PhoneNumber" placeholder="Enter phone number" required pattern="[6-9] {1} [0-9] {9}"/>
+                 <label>Email ID</label>
+                <input type="text" name="EmailID" placeholder="Enter email id" required/>
+                <label>Password</label>
+                <input type="password" name="Password" placeholder="Enter your password" required/>
+                <input type="submit" value="Signup">
+                
+       </div>         
+                
+</form>           
+</body>
+</html>                
